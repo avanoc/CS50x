@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It takes less time to go through the sorted list, than to sort the reversed or random list (big O != big Omega).
+
+sort2 uses: Merge Sort
+
+How do you know?: Because it takes about the same time (<1 s), to sort each file with 50000 numbers on it (big O = big Omega), but also, it is the fastest.
+
+sort3 uses: Selection Sort
+
+How do you know?: Because it takes about the same time (4 s), to sort each file with 50000 numbers on it (big O = big Omega), but also, it is not the fastest.
