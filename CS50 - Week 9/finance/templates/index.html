@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div.a>Cash Balance Available = {{ cash[0] | usd }}</div.a>
+    <div.b>Total Value of Portfolio = {{ balance[0] | usd }}</div.b>
+    <table class="table">
+        <thead>
+            <td>Stock Symbol</td>
+            <td>Number of Shares</td>
+            <td>Current Price</td>
+            <td>Total Value</td>
+        </thead>
+        <tbody>
+            {% for i in portfolio %}
+                <tr>
+                    <td>{{ i.symbol }}</td>
+                    <td>{{ i.numShares }}</td>
+                    <td>{{ i.current | usd }}</td>
+                    <td>{{ i.total | usd }}</td>
+                </tr>
+            {% endfor %}
+    </table>
+
+{% endblock %}

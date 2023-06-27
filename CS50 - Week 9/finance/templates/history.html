@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class = table>
+        <thead>
+            <td>Transaction</td>
+            <td>Symbol traded</td>
+            <td>Price</td>
+            <td>Number of shares traded</td>
+            <td>Made on</td>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>
+                        {% if stock.priceSell < 0 %}
+                            {{ 'Sell' }}
+                        {% else %}
+                            {{ 'Purchase' }} {# poner en color azul #}
+                        {% endif %}
+                    </td>
+                    <td>{{ stock.symbol }}</td>
+                    <td>
+                        {% if stock.priceSell < 0 %}
+                            {{ - stock.priceSell | usd }}
+                        {% else %}
+                            {{ stock.priceBuy | usd }}
+                        {% endif %}
+                    </td>
+                    <td>{{ stock.numShares }}</td>
+                    <td>{{ stock.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

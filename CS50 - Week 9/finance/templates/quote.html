@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    {% if not isQuote %}
+        <form action="/quote" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        <p></p>
+    {% else %}
+        <table class="table">
+            <thead>
+                <td>Symbol</td>
+                <td>Name</td>
+                <td>Current Price per Share</td>
+            </thead>
+            <tbody>
+                <td>
+                    {{ symbol }}
+                </td>
+                <td>
+                    {{ name }}
+                </td>
+                <td>
+                    {{ price | usd }}
+                </td>
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
